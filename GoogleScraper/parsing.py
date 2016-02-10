@@ -567,7 +567,8 @@ class BingParser(Parser):
 
     search_types = ['normal', 'image']
 
-    no_results_selector = ['#b_results > .b_ans::text']
+    # no_results_selector = ['#b_results > .b_ans::text']
+    no_results_selector = ['#b_results > .b_no::text']
 
     num_results_search_selectors = ['.sb_count']
 
@@ -575,6 +576,19 @@ class BingParser(Parser):
 
     page_number_selectors = ['.sb_pagS::text']
 
+    normal_search_selectors = {
+        'results': {
+            'us_ip': {
+                'container': '#b_results',
+                'result_container': '.b_algo',
+                'link': 'h2 > a::attr(href)',
+                'snippet': '.b_caption > p::text',
+                'title': 'h2::text',
+                'visible_link': 'cite::text'
+            },
+        }
+    }
+    """
     normal_search_selectors = {
         'results': {
             'us_ip': {
@@ -620,6 +634,7 @@ class BingParser(Parser):
             }
         }
     }
+    """
 
     image_search_selectors = {
         'results': {
