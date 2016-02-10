@@ -570,9 +570,10 @@ class BingParser(Parser):
     # no_results_selector = ['#b_results > .b_ans::text']
     no_results_selector = ['#b_results > .b_no::text']
 
-    num_results_search_selectors = ['.sb_count']
+    num_results_search_selectors = ['#b_tween .sb_count']
 
-    effective_query_selector = ['#sp_requery a > strong', '#sp_requery + #sp_recourse a::attr(href)']
+    # effective_query_selector = ['#sp_requery a > strong', '#sp_requery + #sp_recourse a::attr(href)']
+    effective_query_selector = ['#sp_requery h2 a > strong', '#sp_requery h2 a::attr(href)']
 
     page_number_selectors = ['.sb_pagS::text']
 
